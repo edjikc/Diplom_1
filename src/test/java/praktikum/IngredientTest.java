@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+
 import java.util.Arrays;
 
 import static org.mockito.Mockito.when;
@@ -29,7 +30,7 @@ public class IngredientTest {
     }
 
     @Parameterized.Parameters
-    public static Object[][] params(){
+    public static Object[][] params() {
         return new Object[][]{
                 {"Котлета", 15.505f, IngredientType.FILLING},
                 {"Помидор", 5.123f, IngredientType.FILLING},
@@ -38,7 +39,7 @@ public class IngredientTest {
     }
 
     @Before
-    public void setup(){
+    public void setup() {
         autoCloseable = MockitoAnnotations.openMocks(this);
 
         when(database.availableIngredients()).thenReturn(Arrays.asList(new Ingredient(ingredientType, name, price)));

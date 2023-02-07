@@ -18,7 +18,7 @@ public class IngredientTypeTest {
     }
 
     @Parameterized.Parameters
-    public static Object[] params(){
+    public static Object[] params() {
         return new Object[]{
                 "SAUCE", "FILLING"
         };
@@ -26,12 +26,12 @@ public class IngredientTypeTest {
 
     @Test
     public void values() {
-        Assert.assertArrayEquals(IngredientType.values(), availableTypes);
+        Assert.assertArrayEquals(availableTypes, IngredientType.values());
     }
 
     @Test
     public void valueOf() {
         IngredientType ingredientType = IngredientType.valueOf(type);
-        Assert.assertEquals(ingredientType.name(), type);
+        Assert.assertEquals(type, ingredientType.name());
     }
 }

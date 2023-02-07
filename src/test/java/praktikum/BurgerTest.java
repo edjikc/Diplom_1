@@ -39,14 +39,14 @@ public class BurgerTest {
 
 
     @Before
-    public void setup(){
+    public void setup() {
         burger = new Burger();
         autoCloseable = MockitoAnnotations.openMocks(this);
 
     }
 
     @Parameterized.Parameters
-    public static Object[][] params(){
+    public static Object[][] params() {
         return new Object[][]{
                 {10f, 15f, 25f},
                 {20.123f, 30.321f, 45.322f},
@@ -78,7 +78,7 @@ public class BurgerTest {
     public void moveIngredient() {
         addIngredient();
         Ingredient newIngredient = addMockIngredient();
-        burger.moveIngredient(1,0);
+        burger.moveIngredient(1, 0);
         assertEquals(burger.ingredients.get(0), newIngredient);
 
     }
@@ -92,7 +92,7 @@ public class BurgerTest {
         when(ingredient.getPrice()).thenReturn(firstIngredientPrice);
         when(newIngredient.getPrice()).thenReturn(secondIngredientPrice);
 
-        assertEquals(burger.getPrice(), finalPrice, 0);
+        assertEquals(finalPrice, burger.getPrice(), 0);
     }
 
     @Test
@@ -111,14 +111,14 @@ public class BurgerTest {
         assertEquals(expectedReceipt, burger.getReceipt());
     }
 
-    private Ingredient addMockIngredient(){
+    private Ingredient addMockIngredient() {
         Ingredient newIngredient = mock(Ingredient.class);
         burger.addIngredient(newIngredient);
         return newIngredient;
     }
 
-    private String buildReceiptMessage(Ingredient newIngredient){
-        return   String.format("(==== %s ====)%n", bun.getName())
+    private String buildReceiptMessage(Ingredient newIngredient) {
+        return String.format("(==== %s ====)%n", bun.getName())
                 + String.format("= %s %s =%n", ingredient.getType().toString().toLowerCase(),
                 ingredient.getName())
                 + String.format("= %s %s =%n", newIngredient.getType().toString().toLowerCase(),

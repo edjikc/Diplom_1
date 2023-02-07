@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
+
 import java.util.Arrays;
 
 import static org.mockito.Mockito.when;
@@ -19,7 +20,7 @@ public class BunTest {
     private Database database;
 
     @Before
-    public void setup(){
+    public void setup() {
         when(database.availableBuns()).thenReturn(Arrays.asList(new Bun(bunName, bunPrice)));
     }
 
